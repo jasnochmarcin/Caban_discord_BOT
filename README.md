@@ -3,6 +3,6 @@ Discord bot, not sure yet what is its purpose.
 
 Using discord.py
 
-New functions:
+##New functions:
 -Greetings in english and polish using $Hello or $Cześć
 -Meme generator using $Meme
