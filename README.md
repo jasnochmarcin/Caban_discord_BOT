@@ -1,5 +1,5 @@
 # Caban_discord_BOT
-Discord bot, not sure yet what is its purpose. 
+Discord bot in progress
 
 Using discord.py
 
