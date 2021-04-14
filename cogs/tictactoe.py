@@ -5,7 +5,7 @@ import random
 player1 = ""
 player2 = ""
 turn = ""
-game_over = True #that also mean that the game didn't start
+game_over = True  # that also mean that the game didn't start
 
 board = []
 
@@ -21,12 +21,13 @@ winning_conditions = [
 ]
 
 @commands.command()
-async def tictactoe(ctx, p1 : discord.Member, p2 : discord.Member):
+async def tictactoe(ctx, p1: discord.Member, p2: discord.Member):
+    global count
     global player1
     global player2
     global turn
     global game_over
-    global count
+
 
     if game_over:
         global board
@@ -63,7 +64,7 @@ async def tictactoe(ctx, p1 : discord.Member, p2 : discord.Member):
 
 
 @commands.command()
-async def place(ctx, pos : int):
+async def place(ctx, pos: int):
     global turn
     global player1
     global player2
@@ -116,6 +117,7 @@ def checkWinner(winning_conditions, mark):
         if board[condition[0]] == mark and board[condition[1]] == mark and board[condition[2]] == mark:
             game_over = True
 
+
 @tictactoe.error
 async def tictactoe_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
@@ -123,8 +125,9 @@ async def tictactoe_error(ctx, error):
     elif isinstance(error, commands.BadArgument):
         await ctx.send("Please make sure to mention/ping players (ie. <@DISCORD_ID>).")
 
+
 @place.error
-async  def place_error(ctx, error):
+async def place_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please enter a position you would like to mark.")
     elif isinstance(error, commands.BadArgument):
