@@ -20,6 +20,7 @@ winning_conditions = [
     [2, 4, 6],
 ]
 
+
 @commands.command()
 async def tictactoe(ctx, p1: discord.Member, p2: discord.Member):
     global count
@@ -27,7 +28,6 @@ async def tictactoe(ctx, p1: discord.Member, p2: discord.Member):
     global player2
     global turn
     global game_over
-
 
     if game_over:
         global board
@@ -92,7 +92,7 @@ async def place(ctx, pos: int):
                     else:
                         line += " " + board[x]
 
-                checkWinner(winning_conditions, mark)
+                check_winner(winning_conditions, mark)
                 if game_over:
                     await ctx.send(mark + "wins!")
                 elif count >= 9:
@@ -111,7 +111,8 @@ async def place(ctx, pos: int):
     else:
         await ctx.send("Please start a new game using the $tictactoe command.")
 
-def checkWinner(winning_conditions, mark):
+
+def check_winner(winning_conditions, mark):
     global game_over
     for condition in winning_conditions:
         if board[condition[0]] == mark and board[condition[1]] == mark and board[condition[2]] == mark:
